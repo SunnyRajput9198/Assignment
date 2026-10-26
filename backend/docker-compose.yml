@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: localdb
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: sunny
+      POSTGRES_PASSWORD: sunny123
+      POSTGRES_DB: sunnydb
+    ports:
+      - "5111:5432" #1st port is fro local machine, 2nd port is for container
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
